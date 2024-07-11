@@ -4,6 +4,12 @@
 
 # TODO: validate the input
 
+if [[ -z $1 ]]
+then
+  echo "Usage: $0 <atomic_number> | <symbol> | <name>"
+  exit 1
+fi
+
 input=$1
 
 echo "The input is: $input"
