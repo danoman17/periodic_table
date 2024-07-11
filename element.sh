@@ -5,7 +5,7 @@
 # validate the input
 if [[ -z $1 ]]
 then
-  echo "Usage: $0 <atomic_number> | <symbol> | <name>"
+  echo "Please provide an element as an argument."
   exit 1
 fi
 
