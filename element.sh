@@ -6,7 +6,6 @@ PSQL="psql --username=freecodecamp --dbname=periodic_table -t --no-align -c"
 if [[ -z $1 ]]
 then
   echo "Please provide an element as an argument."
-  exit 1
 fi
 
 # assign the input 
@@ -23,7 +22,7 @@ is_symbol() {
 }
 
 handle_name() {
-  [[ $1 =~ ^[A-Za-z]*$ ]]
+  [[ $1 =~ ^[A-Za-z]+$ ]]
 }
 
 # number search
