@@ -84,6 +84,8 @@ search_name() {
   else
     ELEMENT_NAME="$($PSQL "SELECT name FROM elements WHERE atomic_number=$ATOMIC_NUMBER")"
 
+    ELEMENT_SYMBOL="$($PSQL "SELECT symbol FROM elements WHERE atomic_number=$ATOMIC_NUMBER")"
+
     ELEMENT_TYPE_NAME="$($PSQL "SELECT types.type FROM types INNER JOIN properties USING(type_id) WHERE atomic_number = $ATOMIC_NUMBER")" 
 
     ATOMIC_MASS="$($PSQL "SELECT atomic_mass FROM properties WHERE atomic_number=$ATOMIC_NUMBER")"
@@ -91,7 +93,7 @@ search_name() {
     MELTING_POINT="$($PSQL "SELECT melting_point_celsius FROM properties WHERE atomic_number=$ATOMIC_NUMBER")"
     BOLING_POINT="$($PSQL "SELECT boiling_point_celsius FROM properties WHERE atomic_number=$ATOMIC_NUMBER")"
   
-    echo "The element with atomic number $ATOMIC_NUMBER is $ELEMENT_NAME ($1). It's a $ELEMENT_TYPE_NAME, with a mass of $ATOMIC_MASS amu. $ELEMENT_NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOLING_POINT celsius."
+    echo "The element with atomic number $ATOMIC_NUMBER is $ELEMENT_NAME ($ELEMENT_SYMBOL). It's a $ELEMENT_TYPE_NAME, with a mass of $ATOMIC_MASS amu. $ELEMENT_NAME has a melting point of $MELTING_POINT celsius and a boiling point of $BOLING_POINT celsius."
   fi
  
   
